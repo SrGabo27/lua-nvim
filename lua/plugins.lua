@@ -30,6 +30,7 @@ return require('packer').startup(function()
 
   ------------------ Intelligence ---------------------
 
+  -- cmp plugins
   use {
    'hrsh7th/nvim-cmp',
    requires = {
@@ -37,11 +38,35 @@ return require('packer').startup(function()
      'hrsh7th/cmp-buffer',
    }
   }
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-luasnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  -- Copilot
+  use 'github/copilot.vim'
 
   use {
-	'neoclide/coc.nvim',
-	branch = 'release'
+	"folke/trouble.nvim",
+	requires = "kyazdani42/nvim-web-devicons",
+	config = function()
+	  require("trouble").setup {
+		-- your configuration comes here
+		-- or leave it empty to use the default settings
+		-- refer to the configuration section below
+	  }
+	end
   }
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   use {
 	"dense-analysis/ale"
@@ -69,7 +94,7 @@ return require('packer').startup(function()
 
   use 'nvim-lua/popup.nvim'
 
-  use 'windwp/nvim-autopairs'
+  --- use 'windwp/nvim-autopairs'
 
   use 'terrortylor/nvim-comment'
 

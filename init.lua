@@ -22,5 +22,5 @@ require('plugins')
 require('maps')
 require('settings')
 
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme tokyonight')
 
