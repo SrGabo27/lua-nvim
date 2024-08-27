@@ -9,6 +9,9 @@ return require('packer').startup(function()
 	  requires = 'kyazdani42/nvim-web-devicons'
   }
 
+	-- Transparency
+	-- use 'tribela/vim-transparent'
+
   use 'morhetz/gruvbox'
   use 'folke/tokyonight.nvim'
 
@@ -16,6 +19,18 @@ return require('packer').startup(function()
 	'hoob3rt/lualine.nvim',
 	requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+
+  use {
+	'shaunsingh/nord.nvim'
+  }
+
+  use {'sainnhe/everforest'}
+
+  use { 'embark-theme/vim', as = 'embark' }
+
+  use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+
+	use "VDuchauffour/neodark.nvim"
 
   ------------------ Navigation -----------------------
 
@@ -28,32 +43,29 @@ return require('packer').startup(function()
 	requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+	use 'echasnovski/mini.nvim'
   ------------------ Intelligence ---------------------
-
-  -- cmp plugins
-  use {
-   'hrsh7th/nvim-cmp',
-   requires = {
-     'hrsh7th/vim-vsnip',
-     'hrsh7th/cmp-buffer',
-   }
-  }
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/cmp-luasnip'
-  use 'hrsh7th/cmp-nvim-lsp'
 
   -- Copilot
   use 'github/copilot.vim'
+	use 'gptlang/CopilotChat.nvim'
+
+	-- Dap
+	use 'mfussenegger/nvim-dap'
+
+	-- Cmp
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/nvim-cmp'
+	use 'saadparwaiz1/cmp_luasnip'
 
   use {
 	"folke/trouble.nvim",
 	requires = "kyazdani42/nvim-web-devicons",
 	config = function()
 	  require("trouble").setup {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
 	  }
 	end
   }
@@ -62,43 +74,25 @@ return require('packer').startup(function()
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-  -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-  use {
-	"dense-analysis/ale"
-  }
+
+  -- LSP
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "williamboman/mason.nvim" -- for building LSPs
+  use 'neovim/nvim-lspconfig'
+  use "williamboman/mason-lspconfig.nvim"
 
   use 'mattn/emmet-vim'
   
-  use {
-	'prettier/vim-prettier',
-    run = 'yarn install',
-    ft = {
-	  'javascript',
-	  'typescript', 
-	  'css', 
-	  'less', 
-	  'scss', 
-	  'graphql', 
-	  'markdown', 
-	  'vue', 
-	  'html'
-	}
-  }
-
   use 'valloric/matchtagalways'
 
   use 'nvim-lua/popup.nvim'
 
-  --- use 'windwp/nvim-autopairs'
-
   use 'terrortylor/nvim-comment'
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use 'virchau13/tree-sitter-astro'
+	use 'tree-sitter/tree-sitter-html'
 
   use 'OmniSharp/omnisharp-vim'
 end)

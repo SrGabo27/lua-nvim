@@ -11,6 +11,3 @@ keymap('n', ',w', ':w<CR>', {})
 keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {silent=true})
 keymap('n', '<Leader>ff', ':Telescope find_files<CR>', {silent=true})
 
--- saga
-keymap('n', 'K', ':Lspsaga hover_doc<CR>', {noremap=true, silent=true})
-keymap('n', '<Leader>K', '<Cmd>Lspsaga signature_help<CR>', {noremap=true})
