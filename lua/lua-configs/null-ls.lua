@@ -2,14 +2,15 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local keymap  = vim.api.nvim_set_keymap
-local opts = { noremap=true, silent=true }
+eal opts = { noremap=true, silent=true }
 local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
 null_ls.setup({
     sources = {
         null_ls.builtins.formatting.prettierd,
-        null_ls.builtins.diagnostics.tsc,
+        --null_ls.builtins.diagnostics.tsc,
         null_ls.builtins.completion.spell,
+        require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
     },
 	on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

@@ -10,3 +10,14 @@ require('./lua-configs/mason')
 require('./lua-configs/null-ls')
 require('./lua-configs/treesiter')
 require('./lua-configs/barbar')
+require('./lua-configs/neoformat')
+require('./lua-configs/no-neck-pain-config')
+
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  update_in_insert = false,
+  underline = true,
+  severity_sort = false,
+  float = true,
+})

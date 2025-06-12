@@ -1,10 +1,6 @@
-require('nvim_comment').setup()
-
-require('nvim-autopairs').setup{}
-
 require'telescope'.setup {
 	defaults = {
-		file_ignore_patterns = { "node_modules", ".git", "./node_modules" }
+		file_ignore_patterns = { "node_modules", ".git", "./node_modules", "./ios", "./android", "ios", "android" }
 	},
   extensions = {
     media_files = {
